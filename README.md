@@ -1,7 +1,7 @@
 # ISCI Kinect2 driver for ROS
 
 ## Introduction
-* This package was originally fork form [iai_kinect2](https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration)
+* This package was originally fork form [iai_kinect2](https://github.com/code-iai/iai_kinect2)
 * Developed by [Thiemo Wiedemeyer](https://ai.uni-bremen.de/team/thiemo_wiedemeyer) <<wiedemeyer@cs.uni-bremen.de>>, [Institute for Artificial Intelligence](http://ai.uni-bremen.de/), University of Bremen
 * Due to some modification and different configuration for the Kinect2 in ISCI Lab, we made some modification in this package,
 
@@ -10,7 +10,7 @@
 - [Howard Chen](https://github.com/s880367), Institute of Electrical Control Engineering, National Chiao Tung University, Taiwan
 
 
-## Read this first -- Same as [iai_kinect2](https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration) 
+## Read this first -- Same as [iai_kinect2](https://github.com/code-iai/iai_kinect2) 
 
 Please read this README and the ones of the individual components throughly before asking questions. We get a lot of repeated questions, so when you have a problem, we urge everyone to check the [github issues  (including closed ones)](https://github.com/code-iai/iai_kinect2/issues?utf8=%E2%9C%93&q=is%3Aissue). Your issue is very likely discussed there already.
 
