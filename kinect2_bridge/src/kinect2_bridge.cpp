@@ -570,7 +570,7 @@ private:
     }
 
 
-    OUT_INFO("default ir camera parameters: ");
+    OUT_INFO(" ============================= default ir camera parameters: ============================ ");
     OUT_INFO("fx: " FG_CYAN << irParams.fx << NO_COLOR ", fy: " FG_CYAN << irParams.fy << NO_COLOR ", cx: " FG_CYAN << irParams.cx << NO_COLOR ", cy: " FG_CYAN << irParams.cy << NO_COLOR);
     OUT_INFO("k1: " FG_CYAN << irParams.k1 << NO_COLOR ", k2: " FG_CYAN << irParams.k2 << NO_COLOR ", p1: " FG_CYAN << irParams.p1 << NO_COLOR ", p2: " FG_CYAN << irParams.p2 << NO_COLOR ", k3: " FG_CYAN << irParams.k3 << NO_COLOR);
 
@@ -666,6 +666,18 @@ private:
     OUT_DEBUG("rotation:" FG_CYAN << std::endl << rotation << NO_COLOR);
     OUT_DEBUG("translation:" FG_CYAN << std::endl << translation << NO_COLOR);
     OUT_DEBUG("depth shift:" FG_CYAN << std::endl << depthShift << NO_COLOR);
+
+
+    OUT_INFO("======================= camera parameters used: ============================");
+    OUT_INFO("camera matrix color:" FG_CYAN << std::endl << cameraMatrixColor << NO_COLOR);
+    OUT_INFO("distortion coefficients color:" FG_CYAN << std::endl << distortionColor << NO_COLOR);
+    OUT_INFO("camera matrix ir:" FG_CYAN << std::endl << cameraMatrixIr << NO_COLOR);
+    OUT_INFO("distortion coefficients ir:" FG_CYAN << std::endl << distortionIr << NO_COLOR);
+    OUT_INFO("camera matrix depth:" FG_CYAN << std::endl << cameraMatrixDepth << NO_COLOR);
+    OUT_INFO("distortion coefficients depth:" FG_CYAN << std::endl << distortionDepth << NO_COLOR);
+    OUT_INFO("rotation:" FG_CYAN << std::endl << rotation << NO_COLOR);
+    OUT_INFO("translation:" FG_CYAN << std::endl << translation << NO_COLOR);
+    OUT_INFO("depth shift:" FG_CYAN << std::endl << depthShift << NO_COLOR);
   }
 
   bool loadCalibrationFile(const std::string &filename, cv::Mat &cameraMatrix, cv::Mat &distortion) const
