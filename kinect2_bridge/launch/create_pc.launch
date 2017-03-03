@@ -1,0 +1,36 @@
+<launch>
+
+  <arg name="kinect_name" default="kinect2" />
+
+  <!-- Nodelet manager for this pipeline -->
+  <node pkg="nodelet" type="nodelet" args="manager"
+        name="$(arg kinect_name)_record_player_manager" output="screen"/>
+
+  <!-- Get the scene depth image transformed to the rgb camera frame -->
+  <node pkg="nodelet" type="nodelet" name="$(arg kinect_name)_depth_registration_nodelet"
+  args="load depth_image_proc/register $(arg kinect_name)_record_player_manager --no-bond">
+
+      <!-- Input: RGB camera calibration and metadata. (sensor_msgs/CameraInfo) -->
+      <remap from="rgb/camera_info" to="$(arg kinect_name)/sd/camera_info"/>
+      <!-- Input: Depth camera calibration and metadata. (sensor_msgs/CameraInfo) -->
+      <remap from="depth/camera_info" to="$(arg kinect_name)/qhd/camera_info"/>
+      <!-- Input: Rectified depth image. (sensor_msgs/Image) -->
+      <remap from="depth/image_rect" to="$(arg kinect_name)/qhd/image_depth_rect"/>
+
+      <!-- Output: Camera calibration and metadata. Same as rgb/camera_info but time-synced
+      to depth_registered/image_rect. (sensor_msgs/CameraInfo)   -->
+      <remap from="depth_registered/camera_info" to="$(arg kinect_name)/sd/depth_registered/camera_info"/>
+      <!-- Output: Reprojected depth image in the RGB camera frame. -->
+      <remap from="depth_registered/image_rect" to="$(arg kinect_name)/sd/depth_registered/image_rect"/>
+  </node>
+
+  <!-- Convert it into a point cloud -->
+  <node pkg="nodelet" type="nodelet" name="$(arg kinect_name)_cloudify_nodelet"
+        args="load depth_image_proc/point_cloud_xyzrgb $(arg kinect_name)_record_player_manager --no-bond">
+    <remap from="depth_registered/image_rect" to="$(arg kinect_name)/sd/depth_registered/image_rect"/>
+    <remap from="depth_registered/points" to="$(arg kinect_name)/sd/depth_registered/points"/>
+    <remap from="rgb/image_rect_color" to="$(arg kinect_name)/sd/image_color_rect"/>
+    <remap from="rgb/camera_info" to="$(arg kinect_name)/sd/camera_info"/>
+  </node>
+
+</launch>
