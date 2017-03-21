@@ -146,7 +146,7 @@ If you found no solution in the issues, feel free to open a new issue for your p
 
 4. Clone this repository into your catkin workspace, install the dependencies and build it:
 
-   ```
+```
 cd ~/catkin_ws/src/
 git clone https://github.com/code-iai/iai_kinect2.git
 cd iai_kinect2
