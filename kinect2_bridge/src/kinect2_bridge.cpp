@@ -1284,7 +1284,7 @@ private:
     }
     else
     {
-      _header.frame_id = baseNameTF + K2_TF_RGB_OPT_FRAME;
+      _header.frame_id = baseNameTF + K2_TF_LINK;// K2_TF_RGB_OPT_FRAME;
 
       infoHDMsg = sensor_msgs::CameraInfoPtr(new sensor_msgs::CameraInfo);
       *infoHDMsg = infoHD;
@@ -1304,7 +1304,7 @@ private:
       }
       else
       {
-        _header.frame_id = baseNameTF + K2_TF_RGB_OPT_FRAME;
+        _header.frame_id = baseNameTF + K2_TF_LINK;// K2_TF_RGB_OPT_FRAME;
       }
 
       switch(status[i])
